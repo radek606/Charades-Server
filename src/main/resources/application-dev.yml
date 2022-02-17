@@ -1,0 +1,33 @@
+server:
+  port: 30012
+  ssl:
+    enabled: false
+
+parameters:
+  client-config:
+    min-supported-version: 65
+    min-supported-version-name: 2.0.2
+  game-config:
+    default-tables-config-path: tables_config_dev.json
+    drawing-player-inactivity-limit-seconds: 60
+    words-pair-length-diff-factor: 0.3
+    close-enough-answer-distance-factor: 0.3
+    table-name-config:
+      DEFAULT:
+        prefix: "dev#"
+        base-number: 100
+      PUBLIC:
+        prefix: "dev#"
+        base-number: 200
+      PRIVATE:
+        prefix: "dev#"
+        base-number: 300
+  log-storage:
+    path: debug-logs
+  words-storage:
+    path: words
+
+logging:
+  level:
+    root: WARN
+    com.ick.kalambury: DEBUG

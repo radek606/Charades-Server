@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "sets": [
+    {
+      "id": "a92b46b6",
+      "version": 1,
+      "name": "Czynności"
+    },
+    {
+      "id": "0f60b9b1",
+      "version": 1,
+      "name": "Professions"
+    },
+    {
+      "id": "ce230694",
+      "version": 1,
+      "name": "Sport"
+    }
+  ]
+}

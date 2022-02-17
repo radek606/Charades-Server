@@ -1,0 +1,22 @@
+[
+  {
+    "id":"dev-1",
+    "kind": "DEFAULT",
+    "pointsLimit":5,
+    "maxPlayers":10,
+    "roundTime":120,
+    "playerChooseMethod": "RANDOM_PLAYER",
+    "language":"pl",
+    "categories":["a92b46b6"]
+  },
+  {
+    "id":"dev-11",
+    "kind": "DEFAULT",
+    "pointsLimit":5,
+    "maxPlayers":10,
+    "roundTime":180,
+    "playerChooseMethod": "RANDOM_PLAYER",
+    "language":"en",
+    "categories":["0f60b9b1", "ce230694"]
+  }
+]

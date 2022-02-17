@@ -1,0 +1,57 @@
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  cache:
+    type: jcache
+    cache-names:
+      - bucket-log-submit
+      - bucket-words
+    jcache:
+      provider: org.redisson.jcache.JCachingProvider
+      config: classpath:redisson.yaml
+  redis:
+    redisson:
+      file: classpath:redisson.yaml
+
+management:
+  server:
+    port: 8081
+    ssl:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+
+parameters:
+  admin-user:
+    login: login
+    password: password
+  server-config:
+    send-time-limit-seconds: 30
+    message-buffer-size: 2097152
+    message-size: 65536
+  words-storage:
+    plaintext-file: plain
+    encrypted-file: encrypted
+
+bucket4j-config:
+  rate-limiters:
+    - name: bucket-log-submit
+      pattern: /v1/log/submit
+      bucket-size: 1
+      refill-type: interval
+      period: 6h
+    - name: bucket-words
+      pattern: /v1/words/.*
+      bucket-size: 20
+      refill-type: interval
+      period: 1h
+
