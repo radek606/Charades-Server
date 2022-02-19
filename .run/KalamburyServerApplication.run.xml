@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="KalamburyServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="kalambury-server.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.ick.kalambury.KalamburyServerApplication" />
+    <option name="ACTIVE_PROFILES" value="dev" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="ALTERNATIVE_JRE_PATH" value="11" />
+    <additionalParameters>
+      <param>
+        <option name="name" value="logging.level.root" />
+        <option name="value" value="trace" />
+      </param>
+    </additionalParameters>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
