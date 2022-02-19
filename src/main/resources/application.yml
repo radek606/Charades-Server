@@ -13,6 +13,7 @@ spring:
     cache-names:
       - bucket-log-submit
       - bucket-words
+      - bucket-global
     jcache:
       provider: org.redisson.jcache.JCachingProvider
       config: classpath:redisson.yaml
@@ -54,4 +55,9 @@ bucket4j-config:
       bucket-size: 20
       refill-type: interval
       period: 1h
+    - name: bucket-global
+      pattern: .*
+      bucket-size: 3
+      refill-type: greedy
+      period: 1s
 

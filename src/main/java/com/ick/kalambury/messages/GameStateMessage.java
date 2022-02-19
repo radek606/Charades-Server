@@ -12,6 +12,10 @@ public class GameStateMessage {
     private final String wordToGuess;
     private final String category;
     private final int timeLeft;
+    @Deprecated
+    private final int roundTime;
+    @Deprecated
+    private final int pointsLimit;
 
     private GameStateMessage(Builder builder) {
         state = builder.state;
@@ -21,6 +25,8 @@ public class GameStateMessage {
         wordToGuess = builder.wordToGuess;
         category = builder.category;
         timeLeft = builder.timeLeft;
+        roundTime = builder.roundTime;
+        pointsLimit = builder.pointsLimit;
     }
 
     public static GameStateMessage.Builder newBuilder(GameDataProtos.GameState.State state) {
@@ -35,6 +41,8 @@ public class GameStateMessage {
                 .setWordToGuess(gameState.getWordToGuess())
                 .setCategory(gameState.getCategory())
                 .setTimeLeft(gameState.getTimeLeft())
+                .setRoundTime(gameState.getRoundTime())
+                .setPointsLimit(gameState.getPointsLimit())
                 .build();
     }
 
@@ -66,10 +74,22 @@ public class GameStateMessage {
         return timeLeft;
     }
 
+    @Deprecated
+    public int getRoundTime() {
+        return roundTime;
+    }
+
+    @Deprecated
+    public int getPointsLimit() {
+        return pointsLimit;
+    }
+
     public GameDataProtos.GameState toProto() {
         GameDataProtos.GameState.Builder builder = GameDataProtos.GameState.newBuilder();
         builder.setState(state);
         builder.setTimeLeft(timeLeft);
+        builder.setRoundTime(roundTime);
+        builder.setPointsLimit(pointsLimit);
 
         if (StringUtils.hasLength(operatorPlayerId)) {
             builder.setOperatorPlayerId(operatorPlayerId);
@@ -102,6 +122,10 @@ public class GameStateMessage {
         private String wordToGuess;
         private String category;
         private int timeLeft;
+        @Deprecated
+        private int roundTime;
+        @Deprecated
+        private int pointsLimit;
 
         public Builder(GameDataProtos.GameState.State val) {
             state = val;
@@ -134,6 +158,18 @@ public class GameStateMessage {
 
         public Builder setTimeLeft(int val) {
             timeLeft = val;
+            return this;
+        }
+
+        @Deprecated
+        public Builder setRoundTime(int roundTime) {
+            this.roundTime = roundTime;
+            return this;
+        }
+
+        @Deprecated
+        public Builder setPointsLimit(int pointsLimit) {
+            this.pointsLimit = pointsLimit;
             return this;
         }
 

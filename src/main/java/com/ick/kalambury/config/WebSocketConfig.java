@@ -130,7 +130,13 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
         String dataString = (String) attributes.get(GameWebSocketHandlerV2.QUERY_PARAM_DATA);
         try {
-            return ConnectionData.parseFrom(Base64.getUrlDecoder().decode(dataString));
+            byte[] decodedData;
+            try {
+                decodedData = Base64.getUrlDecoder().decode(dataString);
+            } catch (IllegalArgumentException e) {
+                decodedData = Base64.getDecoder().decode(dataString);
+            }
+            return ConnectionData.parseFrom(decodedData);
         } catch (InvalidProtocolBufferException e) {
             try {
                 ConnectionDataLegacy dataLegacy = ConnectionDataLegacy.parse(objectMapper, dataString);

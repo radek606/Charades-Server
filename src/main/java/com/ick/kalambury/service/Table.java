@@ -127,6 +127,7 @@ public class Table {
         players.put(user.getId(), player);
 
         callbacks.sendMessage(GameDataMessage.newBuilder(GameDataMessage.INITIAL_DATA)
+                .withGameState(getGameStateMessage(0))
                 .withGameConfig(GameConfigMessage.fromTableConfig(tableConfig).setName(name).build())
                 .withPlayers(players)
                 .build(), Collections.singletonList(player.getId()));
@@ -504,6 +505,8 @@ public class Table {
                 .setWordToGuess(currentWord != null ? currentWord.getWord() : null)
                 .setCategory(currentWord != null ? currentWord.getSetName() : null)
                 .setTimeLeft(currentTimeLeft)
+                .setRoundTime(tableConfig.getRoundTime())
+                .setPointsLimit(tableConfig.getPointsLimit())
                 .build();
     }
 
