@@ -13,7 +13,16 @@ import java.util.regex.Pattern;
 @ConfigurationProperties(prefix = "bucket4j-config")
 public class RateLimitersConfig {
 
+    private Boolean enabled;
     private List<RateLimiter> rateLimiters;
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public List<RateLimiter> getRateLimiters() {
         return rateLimiters;

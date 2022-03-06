@@ -44,6 +44,7 @@ parameters:
     encrypted-file: encrypted
 
 bucket4j-config:
+  enabled: false
   rate-limiters:
     - name: bucket-log-submit
       pattern: /v1/log/submit
