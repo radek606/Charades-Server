@@ -30,8 +30,8 @@ server:
 
 parameters:
   client-config:
-    min-supported-version: 64
-    min-supported-version-name: 2.0.2
+    min-supported-version: 83
+    min-supported-version-name: 3.0.0
   game-config:
     default-tables-config-path: tables_config_prod.json
     drawing-player-inactivity-limit-seconds: 60
