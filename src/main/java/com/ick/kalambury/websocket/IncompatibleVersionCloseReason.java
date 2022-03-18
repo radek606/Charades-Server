@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class IncompatibleVersionCloseReason {
 
     @JsonProperty
-    private int minVersion;
+    private int minVersionCode;
 
     @JsonProperty
     private String minVersionName;
@@ -13,13 +13,13 @@ public class IncompatibleVersionCloseReason {
     public IncompatibleVersionCloseReason() {
     }
 
-    public IncompatibleVersionCloseReason(int minVersion, String minVersionName) {
-        this.minVersion = minVersion;
+    public IncompatibleVersionCloseReason(int minVersionCode, String minVersionName) {
+        this.minVersionCode = minVersionCode;
         this.minVersionName = minVersionName;
     }
 
-    public void setMinVersion(int minVersion) {
-        this.minVersion = minVersion;
+    public void setMinVersionCode(int minVersionCode) {
+        this.minVersionCode = minVersionCode;
     }
 
     public void setMinVersionName(String minVersionName) {
